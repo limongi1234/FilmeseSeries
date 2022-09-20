@@ -3,55 +3,45 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Serie extends Programa 
-{
+public final class Serie extends Programa {
     private List <Temporada> temporadas = new ArrayList <Temporada> (); 
 	
-	public Serie(String nome, ECategoria categoria, List <Temporada> temporadas) 
-	{
+	public Serie(String nome, ECategoria categoria, List <Temporada> temporadas) {
 	    super(nome, categoria);
 	    this.temporadas = temporadas;
 	}
 
-	public Serie()
-	{
+	public Serie(){
 		super();
 	}
 
-    public List <Temporada> getQtdTemporadas() 
-	{
+        public List <Temporada> getQtdTemporadas() {
 		return temporadas;
 	}
 	
-	public void setTemporadas(List <Temporada> temporadas) 
-	{
+	public void setTemporadas(List <Temporada> temporadas) {
 		this.temporadas = temporadas;
 	}
 
 	@Override
-	public void classificar(int classificacao) 
-	{
+	public void classificar(int classificacao) {
 		
-		try 
-		{
+		try {
 			checaClassificacao(classificacao);
-		}catch (Exception e) 
-		{
+		}catch (Exception e) {
 			System.out.println("Um problema ocorreu: "+ e);
 		}
-     }
+        }
 	
-	private void checaClassificacao(int classificacao) throws ClassificacaoForaDoRangeException 
-	{
+	private void checaClassificacao(int classificacao) throws ClassificacaoForaDoRangeException {
 		if (classificacao >= 0 && classificacao <= 10) 
 			this.pontuacao = classificacao;
 		else 
-			throw new ClassificacaoForaDoRangeException("Classificação fornecida fora do range permitido (0 a 5 para filmes, 0 a 10 para séries)");
+			throw new ClassificacaoForaDoRangeException("ClassificaÃ§Ã£o fornecida fora do range permitido (0 a 5 para filmes, 0 a 10 para sÃ©ries)");
 	}
 	
 	@Override
-	public String toString() 
-	{
-		return "Nome do programa: " + nome + "\nCategoria: " + categoria + "\nClassificação: " +pontuacao+"\n" + temporadas+"\n---------------------\n";
+	public String toString() {
+		return "Nome do programa: " + nome + "\nCategoria: " + categoria + "\nClassificaÃ§Ã£o: " +pontuacao+"\n" + temporadas+"\n---------------------\n";
 	}	
 }
