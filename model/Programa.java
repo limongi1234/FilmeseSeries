@@ -1,79 +1,65 @@
 package model;
 															
-public abstract class Programa implements IClassificar 
-{
+public abstract class Programa implements IClassificar {
 	protected int pontuacao;
 	protected String nome;
 	protected ECategoria categoria;
 	
-	public Programa(String nome, ECategoria categoria) 
-	{
+	public Programa(String nome, ECategoria categoria) {
 		this.nome = nome;
 		this.categoria = categoria;
 	}
 
-	public Programa()
-	{
+	public Programa(){
 		super();
 	}
 	
-	public Programa(String nome)
-	{
+	public Programa(String nome){
 		this.nome = nome;
 	}
 
 
-	public int getPontuacao()
-	{
+	public int getPontuacao(){
 		return pontuacao;
 	}
 
-	public String getNome() 
-	{
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(String nome) 
-	{
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public ECategoria getCategoria() 
-	{
+	public ECategoria getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(ECategoria categoria)
-	{
+	public void setCategoria(ECategoria categoria){
 		this.categoria = categoria;
 	}
 
 	@Override
-	public void classificar(int classificacao) throws ClassificacaoForaDoRangeException
-	{
-		try 
-		{
+	public void classificar(int classificacao) throws ClassificacaoForaDoRangeException{
+		try {
 			checarClassificacao(classificacao);
-	    }catch (Exception e) 
-		{
+	    }catch (Exception e) {
 		  System.out.println("Um problema ocorreu: "+e);
 	    }
 	}
 	
-	private void checarClassificacao(int classificacao) throws ClassificacaoForaDoRangeException 
-	{
+	private void checarClassificacao(int classificacao) throws ClassificacaoForaDoRangeException {
 		
 		if(classificacao >= 0 && classificacao <= 5) 
 			this.pontuacao = classificacao;
 		else 
 			throw new ClassificacaoForaDoRangeException
-			("Classificação fornecida fora do range permitido (0 a 5 para filmes, 0 a 10 para séries)");
+			("ClassificaÃ§Ã£o fornecida fora do range permitido (0 a 5 para filmes, 0 a 10 para sÃ©ries)");
 		
 	}
 
 	@Override
-	public String toString() 
-	{
-		return "Nome do programa: " + nome + "\tCategoria: " + categoria + "\tClassificação: " +pontuacao+"\n";
+	public String toString() {
+		return "Nome do programa: " + nome + "\tCategoria: " + categoria + "\tClassificaÃ§Ã£o: " +pontuacao+"\n";
 	}
 }
