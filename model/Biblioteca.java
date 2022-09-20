@@ -3,32 +3,26 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Biblioteca
-{
+public class Biblioteca{
 	private List <Programa> programas = new ArrayList<>();
 
-	public Biblioteca(List <Programa> programas)
-	{
+	public Biblioteca(List <Programa> programas){
 		this.programas = programas;
 	}
 
-	public Biblioteca() 
-	{
+	public Biblioteca() {
 
 	}
 
-	public Programa getPrograma(String nome) 
-	{	
+	public Programa getPrograma(String nome) {	
 
 		for (Programa programa : programas) 
 			if (programa.getNome().equals(nome)) 
 				return programa;
 			
-		try 
-		{
+		try {
 			checaPrograma(nome);
-		}catch (Exception e) 
-		{
+		}catch (Exception e) {
 			System.out.println("Ocorreu um problema: "+e.getMessage());
 		}
 
@@ -36,25 +30,21 @@ public class Biblioteca
 	}
 	
 	
-	public void setProgramas(List <Programa> programas) 
-	{
+	public void setProgramas(List <Programa> programas) {
 		this.programas = programas;
 	}
 
-	private void checaPrograma(String nome) throws ProgramaInexistenteException 
-	{
+	private void checaPrograma(String nome) throws ProgramaInexistenteException {
 		
 		for (Programa programa : programas) 
 			if(!programa.getNome().equals(nome)) 
-				throw new ProgramaInexistenteException("Este programa n„o est· cadastrado no sistema");
+				throw new ProgramaInexistenteException("Este programa n√£o est√° cadastrado no sistema");
 	}
 
-	public List <Programa> getProgramas(ECategoria categoria)
-	{
+	public List <Programa> getProgramas(ECategoria categoria){
 		ArrayList <Programa> temp = new ArrayList <> ();
 		
-		programas.forEach(programa ->
-		{
+		programas.forEach(programa ->{
 			if (programa.getCategoria().equals(categoria)) 
 				temp.add(programa);
 			
