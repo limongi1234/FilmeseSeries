@@ -1,18 +1,15 @@
 package model;
 
-public enum ECategoria 
-{ 
-	FANTASIA("Ficções, aventuras e tramas épicas"), TERROR("Suspenses psicológicos e trash horror"), COMEDIA("Pastelão e fim de noite");
+public enum ECategoria { 
+	FANTASIA("FicÃ§Ãµes, aventuras e tramas Ã©picas"), TERROR("Suspenses psicolÃ³gicos e trash horror"), COMEDIA("PastelÃ£o e fim de noite");
 	
 	private final String descricao;
 	
-	private ECategoria (String descricao) 
-	{
+	private ECategoria (String descricao) {
 		this.descricao = descricao;
 	}
 
-	public String getDescricao()
-	{
+	public String getDescricao(){
 		return descricao;
 	}
 }
