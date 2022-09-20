@@ -12,16 +12,14 @@ import model.Programa;
 import model.Serie;
 import model.Temporada;
 
-public class Main
-{
+public class Main{
 /**
  * @author Erick Ferraz Pereira, Paula Valviesse, Renato Lemos Limongi, Leonardo Gomes Serafim, Gustavo Alberto Kozlowiski,
- *  Joï¿½o Luiz Costa, Pedro Salvador Mendes.
+ *  JoÃ¯Â¿Â½o Luiz Costa, Pedro Salvador Mendes.
  *  
  * @param args
  */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args){
 
 		List <Programa> listaPrograma = new ArrayList <Programa>();
 		List <Temporada> listaTemporada = new ArrayList <Temporada>();
@@ -41,25 +39,21 @@ public class Main
 		Scanner leia = new Scanner(System.in);
 		Scanner scan = new Scanner(System.in);
 
-		do 
-		{
-			try 
-			{
-				System.out.println("-------- MENU DE OPÇÕES --------");
+		do {
+			try {
+				System.out.println("-------- MENU DE OPÃ‡Ã•ES --------");
 				System.out.println("1. Cadastrar programa\n2. Editar programa\n3. Remover programa"
 						+ "\n4. Classificar programa\n5. Listar por categoria\n6. Sair");
-				System.out.println("\nDigite sua opção aqui: ");
+				System.out.println("\nDigite sua opÃ§Ã£o aqui: ");
 				op = leia.nextInt();
 
-				switch (op) 
-				{
+				switch (op) {
 				    case 1:
 					System.out.println(
-							"\nEscolha o tipo de programa deseja cadastrar: \n1) Filme\n2) Série\n\nDigite aqui sua opção: ");
+							"\nEscolha o tipo de programa deseja cadastrar: \n1) Filme\n2) SÃ©rie\n\nDigite aqui sua opÃ§Ã£o: ");
 					opt = leia.nextInt();
 
-					if (opt == 1) 
-					{
+					if (opt == 1) {
 						filme = new Filme();
 
 						System.out.println("\nInforme o nome do filme: ");
@@ -68,7 +62,7 @@ public class Main
 
 						System.out.println();
 						System.out.println(
-								"Informe a categoria: \n1) Comédia\n2) Fantasia\n3) Terror\n\nDigite aqui sua opção: ");
+								"Informe a categoria: \n1) ComÃ©dia\n2) Fantasia\n3) Terror\n\nDigite aqui sua opÃ§Ã£o: ");
 						cat = leia.nextInt();
 
 						if (cat == 1) 
@@ -77,15 +71,14 @@ public class Main
 							filme.setCategoria(ECategoria.FANTASIA);
 						else if (cat == 3) 
 							filme.setCategoria(ECategoria.TERROR);
-						else
-						{
-							System.out.println("ERRO! Categoria inválida. Pressione uma tecla para voltar: ");
+						else{
+							System.out.println("ERRO! Categoria invÃ¡lida. Pressione uma tecla para voltar: ");
 							leia.next();
 							break;
 						}
 						
 						System.out.println();
-						System.out.println("Informe a duração do filme em minutos: ");
+						System.out.println("Informe a duraÃ§Ã£o do filme em minutos: ");
 						
 						filme.setDuracao(leia.nextInt());
 						System.out.println();
@@ -97,18 +90,17 @@ public class Main
 						leia.next();
 						break; 
 
-					} else if (opt == 2)
-					{
+					} else if (opt == 2){
 						serie = new Serie();
 						temporada = new Temporada();
 
-						System.out.println("Informe o nome da série: ");
+						System.out.println("Informe o nome da sÃ©rie: ");
 						nome = scan.nextLine();
 						serie.setNome(nome);
 
 						System.out.println();
 						System.out.println(
-								"Informe a categoria: \n1) Comédia\n2) Fantasia\n3) Terror\n\nDigite aqui sua opção: ");
+								"Informe a categoria: \n1) ComÃ©dia\n2) Fantasia\n3) Terror\n\nDigite aqui sua opÃ§Ã£o: ");
 						cat = leia.nextInt();
 
 						if (cat == 1) 
@@ -117,9 +109,8 @@ public class Main
 							serie.setCategoria(ECategoria.FANTASIA);
 						 else if (cat == 3) 
 							serie.setCategoria(ECategoria.TERROR);
-						 else 
-						 {
-							System.out.println("ERRO! Categoria inválida. Pressione qualquer tecla para voltar: ");
+						 else {
+							System.out.println("ERRO! Categoria invÃ¡lida. Pressione qualquer tecla para voltar: ");
 							leia.next();
 							break;
 						 }
@@ -129,7 +120,7 @@ public class Main
 						 temporada.setNumTemporada(leia.nextInt());
 
 						 System.out.println();
-						 System.out.println("Informe a quantidade de episódios: ");
+						 System.out.println("Informe a quantidade de episÃ³dios: ");
 						 temporada.setQtdEp(leia.nextInt());
 						 System.out.println();
 
@@ -137,12 +128,11 @@ public class Main
 						 serie.setTemporadas(listaTemporada);
 						 listaPrograma.add(serie);
 						 biblioteca.setProgramas(listaPrograma);
-						 System.out.println("Série cadastrada com sucesso! Pressione qualquer tecla para voltar: ");
+						 System.out.println("SÃ©rie cadastrada com sucesso! Pressione qualquer tecla para voltar: ");
 						 leia.next();
 						 break; 
-					 } else 
-					 {
-						System.out.println("ERRO! Digite uma opção válida. Pressione qualquer tecla para voltar: ");
+					 } else {
+						System.out.println("ERRO! Digite uma opÃ§Ã£o vÃ¡lida. Pressione qualquer tecla para voltar: ");
 						leia.next();
 						break;
 					}
@@ -151,73 +141,62 @@ public class Main
 					System.out.println("\nInforme o nome do programa que deseja editar: ");
 					nome = scan.nextLine();
 
-					if (listaPrograma.isEmpty())
-					{
+					if (listaPrograma.isEmpty()){
 						System.out.println(
-								"Impossível editar programas de uma lista vazia! Pressione uma tecla para voltar: ");
+								"ImpossÃ­vel editar programas de uma lista vazia! Pressione uma tecla para voltar: ");
 						leia.next();
 						break;
 					}
 					
-					for (Programa programa : listaPrograma) 
-					{
-						if (programa.getNome().equalsIgnoreCase(nome))
-						{
+					for (Programa programa : listaPrograma) {
+						if (programa.getNome().equalsIgnoreCase(nome)){
 							System.out.println("\nPrograma: " + programa.getNome());
-							System.out.println("\n1) Editar nome\n2) Editar categoria\n\nDigite aqui sua opção: ");
+							System.out.println("\n1) Editar nome\n2) Editar categoria\n\nDigite aqui sua opÃ§Ã£o: ");
 							opt = leia.nextInt();
 
-							if (opt == 1) 
-							{
+							if (opt == 1) {
 								System.out.println("\nInforme o novo nome do programa: ");
 								programa.setNome(scan.nextLine());
 								System.out
-										.println("\nAlteração efetuada com sucesso! Pressione uma tecla para voltar: ");
+										.println("\nAlteraÃ§Ã£o efetuada com sucesso! Pressione uma tecla para voltar: ");
 								leia.next();
 								break;
-							} else if (opt == 2)
-							{
+							} else if (opt == 2){
 								System.out.println("\nInforme a nova categoria do programa: "
-										+ " \n1) Comédia\n2) Fantasia\n3) Terror\n\nDigite aqui sua opção: ");
+										+ " \n1) ComÃ©dia\n2) Fantasia\n3) Terror\n\nDigite aqui sua opÃ§Ã£o: ");
 								opt = leia.nextInt();
 
-								if (opt == 1) 
-								{
+								if (opt == 1){
 									programa.setCategoria(ECategoria.COMEDIA);
 									System.out.println(
-											"Alteração efetuada com sucesso! Pressione uma tecla para voltar: ");
+											"AlteraÃ§Ã£o efetuada com sucesso! Pressione uma tecla para voltar: ");
 									leia.next();
 									break;
-								} else if (opt == 2) 
-								{
+								} else if (opt == 2) {
 									programa.setCategoria(ECategoria.FANTASIA);
 									System.out.println(
-											"Alteração efetuada com sucesso! Pressione uma tecla para voltar: ");
+											"AlteraÃ§Ã£o efetuada com sucesso! Pressione uma tecla para voltar: ");
 									leia.next();
 									break;
-								} else if (opt == 3)
-								{
+								} else if (opt == 3){
 									programa.setCategoria(ECategoria.TERROR);
 									System.out.println(
-											"Alteração efetuada com sucesso! Pressione uma tecla para voltar: ");
+											"AlteraÃ§Ã£o efetuada com sucesso! Pressione uma tecla para voltar: ");
 									leia.next();
 									break;
-								} else
-								{
-									System.out.println("ERRO! Categoria inválida. Pressione uma tecla para voltar: ");
+								} else{
+									System.out.println("ERRO! Categoria invÃ¡lida. Pressione uma tecla para voltar: ");
 									leia.next();
 									break;
 								}
-							} else 
-							{
-								System.out.println("ERRO! Digite uma opção válida. Pressione uma tecla para voltar: ");
+							} else {
+								System.out.println("ERRO! Digite uma opÃ§Ã£o vÃ¡lida. Pressione uma tecla para voltar: ");
 								leia.next();
 								break;
 							}
-						} else 
-						{ 
+						} else { 
 							System.out.println(
-									"Esse programa não se encontra cadastrado na biblioteca. Pressione uma tecla para voltar: ");
+									"Esse programa nÃ£o se encontra cadastrado na biblioteca. Pressione uma tecla para voltar: ");
 							leia.next();
 							break;
 						}
@@ -228,44 +207,37 @@ public class Main
 					System.out.println("\nInforme o nome do programa que deseja excluir: ");
 					nome = scan.nextLine();
 					
-					if (listaPrograma.isEmpty()) 
-					{
+					if (listaPrograma.isEmpty()) {
 						System.out.println(
-								"Impossï¿½vel remover programas de uma lista vazia! Pressione uma tecla para voltar: ");
+								"ImpossÃ¯Â¿Â½vel remover programas de uma lista vazia! Pressione uma tecla para voltar: ");
 						leia.next();
 						break;
 					}
 					
-					for (Programa programa : listaPrograma)
-					{
-						if (programa.getNome().equalsIgnoreCase(nome))
-						{
+					for (Programa programa : listaPrograma) {
+						if (programa.getNome().equalsIgnoreCase(nome) {
 							System.out.println("Deseja realmente excluir " + programa.getNome()
-									+ "?\n1) Sim\n2) Nï¿½o\n\nDigite aqui sua opï¿½ï¿½o: ");
+									+ "?\n1) Sim\n2) NÃ¯Â¿Â½o\n\nDigite aqui sua opÃ¯Â¿Â½Ã¯Â¿Â½o: ");
 							opt = leia.nextInt();
-							if (opt == 1) 
-							{
+							if (opt == 1) {
 								listaPrograma.remove(programa);
-								System.out.println("Programa excluï¿½do com sucesso! Pressione uma tecla para voltar: ");
+								System.out.println("Programa excluÃ¯Â¿Â½do com sucesso! Pressione uma tecla para voltar: ");
 								leia.next();
 								break;
-							} else if (opt == 2) 
-							{
+							} else if (opt == 2) {
 								System.out
-										.println(programa.getNome() + " É um ótimo programa. Que bom que não removeu. "
+										.println(programa.getNome() + " Ã‰ um Ã³timo programa. Que bom que nÃ£o removeu. "
 												+ "Pressione uma tecla para voltar: ");
 								leia.next();
 								break;
-							} else
-							{
-								System.out.println("ERRO! Escolha uma opção válida. Pressione uma tecla para voltar: ");
+							} else{
+								System.out.println("ERRO! Escolha uma opÃ§Ã£o vÃ¡lida. Pressione uma tecla para voltar: ");
 								leia.next();
 								break;
 							}
-						} else 
-						{ 
+						} else { 
 							System.out.println(
-									"Esse programa não se encontra cadastrado na bibilioteca. Pressione uma tecla para voltar: ");
+									"Esse programa nÃ£o se encontra cadastrado na bibilioteca. Pressione uma tecla para voltar: ");
 							leia.next();
 							break;
 						}
@@ -277,19 +249,15 @@ public class Main
 					System.out.println("\nInforme o nome do programa que deseja classificar: ");
 					nome = scan.nextLine();
 
-					for (Programa programa : listaPrograma)
-					{
-						if (programa.getNome().equalsIgnoreCase(nome)) 
-						{
+					for (Programa programa : listaPrograma){
+						if (programa.getNome().equalsIgnoreCase(nome)) {
 							achouPrograma = true;
 							System.out.println("\nInforme sua nota para " + programa.getNome() + ": ");
-							try
-							{
+							try{
 								programa.classificar(leia.nextInt());
 								System.out.println(
 										"\nPrograma classificado com sucesso! Pressione uma tecla para voltar: ");
-							} catch (ClassificacaoForaDoRangeException cfdre) 
-							{
+							} catch (ClassificacaoForaDoRangeException cfdre) {
 								System.out.println("Um problema ocorreu: " + cfdre);
 								System.out.println("Pressione uma tecla para voltar: ");
 							}
@@ -298,10 +266,9 @@ public class Main
 						}
 					}
 					
-					if (!achouPrograma) 
-					{
+					if (!achouPrograma){
 						System.out.println(
-								"Esse programa não se encontra cadastrado na biblioteca. Pressione uma tecla para voltar: ");
+								"Esse programa nÃ£o se encontra cadastrado na biblioteca. Pressione uma tecla para voltar: ");
 						leia.next();
 						break;
 					}
@@ -309,14 +276,13 @@ public class Main
 				    
 				    case 5:
 					System.out.println(
-							"\nSelecione a categoria a qual deseja listar os programas:\n1) Comédia\n2) Fantasia\n3) Terror\n\n"
-									+ "Digite aqui sua opção: ");
+							"\nSelecione a categoria a qual deseja listar os programas:\n1) ComÃ©dia\n2) Fantasia\n3) Terror\n\n"
+									+ "Digite aqui sua opÃ§Ã£o: ");
 					opt = leia.nextInt();
 
-					if (opt == 1) 
-					{
+					if (opt == 1) {
 						System.out.println(
-								"\n----------------------------------\nListagem dos programas de COMÉDIA\n------------"
+								"\n----------------------------------\nListagem dos programas de COMÃ‰DIA\n------------"
 										+ "----------------------\n\n");
 						for (Programa programa : listaPrograma) 
 							if (programa.getCategoria() == ECategoria.COMEDIA) 
@@ -326,8 +292,7 @@ public class Main
 						System.out.println("\nPressione uma tecla para voltar: ");
 						leia.next();
 						break;
-					} else if (opt == 2) 
-					{
+					} else if (opt == 2) {
 						System.out.println(
 								"\n----------------------------------\nListagem dos programas de FANTASIA\n---------------"
 										+ "-------------------\n\n");
@@ -339,8 +304,7 @@ public class Main
 						System.out.println("\nPressione uma tecla para voltar: ");
 						leia.next();
 						break;
-					} else if (opt == 3)
-					{
+					} else if (opt == 3){
 						System.out.println(
 								"\n----------------------------------\nListagem dos programas de TERROR\n----------------"
 										+ "------------------\n\n");
@@ -354,22 +318,20 @@ public class Main
 						System.out.println("\nPressione uma tecla para voltar: ");
 						leia.next();
 						break;
-					} else
-					{
-						System.out.println("ERRO! Informe uma categoria válida. Pressione uma tecla para voltar: ");
+					} else{
+						System.out.println("ERRO! Informe uma categoria vÃ¡lida. Pressione uma tecla para voltar: ");
 						leia.next();
 						break;
 					}
 
 				    case 6:
-					System.out.println("\n\"É preciso que o discípulo da sabedoria tenha o coração grande e corajoso. "
-							+ "O fardo é pesado e a viagem longa.\" - Confïguração.\n\nEncerrando o programa. Até mais!");
+					System.out.println("\n\"Ã‰ preciso que o discÃ­pulo da sabedoria tenha o coraÃ§Ã£o grande e corajoso. "
+							+ "O fardo Ã© pesado e a viagem longa.\" - ConfÃ¯guraÃ§Ã£o.\n\nEncerrando o programa. AtÃ© mais!");
 					sair = true;
 				}
-			} catch (InputMismatchException ime) 
-			{
+			} catch (InputMismatchException ime) {
 				System.out.println(
-						"ERRO: Escolha uma opção válida ou insira um valor numérico válido! Pressione uma tecla para voltar: ");
+						"ERRO: Escolha uma opÃ§Ã£o vÃ¡lida ou insira um valor numÃ©rico vÃ¡lido! Pressione uma tecla para voltar: ");
 				leia.next();
 				leia.next();
 			}
